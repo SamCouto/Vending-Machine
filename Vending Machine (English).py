@@ -5,222 +5,317 @@ potato=10
 choc=10
 ice=10
 profit=0
-while True:
-    try:
-        print('--------Vending Machine--------\n'
-            '|Code:         |Items:        |\n'
-            '|      1       |Soda          |\n'
-            '|      2       |Water         |\n'
-            '|      3       |Lemonade      |\n'
-            '|      4       |Potato chips  |\n'
-            '|      5       |Chocolate     |\n'
-            '|      6       |Ice cream     |\n'
-            '-------------------------------\n'
-            '0- Exit\n'
-            '1- Buy')
-        op=int(input('-> '))
-        if(op==1234):
-            while True:
-                try:
-                    print('---------STORAGE---------')
-                    print('Items:      |Units: ')
-                    print('Soda        |{}    '.format(soda))
-                    print('Water       |{}    '.format(water))
-                    print('Lemonade    |{}    '.format(lemonade))
-                    print('Potato chips|{}    '.format(potato))
-                    print('Chocolate   |{}    '.format(choc))
-                    print('Ice cream   |{}    '.format(ice))
-                    print('-'*25)
-                    print('0- Exit\n'
-                        '1- Add\n'
-                        '2- Profit')
-                    stock=int(input('-> '))
-                    if(stock==1):
-                        print('What do you want to add?\n'
-                            '1- Soda\n'
-                            '2- Water\n'
-                            '3- Lemonade\n'
-                            '4- Potato chips\n'
-                            '5- Chocolate\n'
-                            '6- Ice cream')
-                        item=int(input('-> '))
-                        if(item==1):
-                            print('How many units will be added?')
-                            unit1=int(input('-> '))
-                            soda+=unit1
-                            print('Units successfully added!')
-                        elif(item==2):
-                            print('How many units will be added?')
-                            unit2=int(input('-> '))
-                            water+=unit2
-                            print('Units successfully added!')
-                        elif(item==3):
-                            print('How many units will be added?')
-                            unit3=int(input('-> '))
-                            lemonade+=unit3
-                            print('Units successfully added!')
-                        elif(item==4):
-                            print('How many units will be added?')
-                            unit4=int(input('-> '))
-                            potato+=unit4
-                            print('Units successfully added!')
-                        elif(item==5):
-                            print('How many units will be added?')
-                            unit5=int(input('-> '))
-                            choc+=unit5
-                            print('Units successfully added!')
-                        elif(item==6):
-                            print('How many units will be added?')
-                            unit6=int(input('->'))
-                            ice+=unit6
-                            print('Units successfully added!')
-                        else:
-                            print('Invalid value\n'
-                                  'Try again...')
-                            continue
 
-                    elif(stock==2):
-                        print('The total profit is {}'.format(profit))
-                    
-                    elif(stock==0):
-                        break    
+def payment1(money):
+    global soda
+    global profit
+    
+    if(money<2.5):
+        print("PAY CORRECTLY!")
+    
+    elif(money==2.5):
+        profit+=2.5
+        soda-=1
+        print("Successfully payed!")
 
-                    else:
-                        print('Invalid value\n'
-                              'Try again...')
-                        continue
+    else:
+        profit+=2.5
+        soda-=1
+        print("Successfully payed!\n"
+        "Returning {}".format(money-2.5))
 
-                except ValueError:
-                    print('Invalid value\n'
-                          'Try again...')
-                
-            print('Finishing...')
-        
-        elif(op==1):
-            print('What do you want to buy?')
-            buy=int(input('-> '))
-            if(buy==1):
+def payment2(money):
+    global water
+    global profit
+
+    if(money<1):
+        print("PAY CORRECTLY!")
+    
+    elif(money==1):
+        profit+=1
+        water-=1
+        print("Successfully payed!")
+
+    else:
+        profit+=1
+        water-=1
+        print("Successfully payed!\n"
+        "Returning {}".format(money-1))
+
+def payment3(money):
+    global lemonade
+    global profit
+
+    if(money<1.5):
+        print("PAY CORRECTLY!")
+
+    elif(money==1.5):
+        profit+=1.5
+        lemonade-=1
+        print("Successfully payed!")
+
+    else:
+        profit+=1.5
+        lemonade-=1
+        print("Successfully payed!\n"
+        "Returning {}".format(money-1.5))
+
+def payment4(money):
+    global potato
+    global profit
+
+    if(money<4):
+        print("PAY CORRECTLY!")
+
+    elif(money==4):
+        profit+=4
+        potato-=1
+        print("Successfully payed!")
+
+    else:
+        profit+=4
+        potato-=1
+        print("Successfully payed!\n"
+        "Returning {}".format(money-4))
+
+def payment5(money):
+    global choc
+    global profit
+
+    if(money<2):
+        print("PAY CORRECTLY!")
+
+    elif(money==2):
+        profit+=2
+        choc-=1
+        print("Successfully payed!")
+
+    else:
+        profit+=2
+        choc-=1
+        print("Successfully payed!\n"
+        "Returning {}".format(money-2))
+
+def payment6(money):
+    global ice
+    global profit
+
+    if(money<0.5):
+        print("PAY CORRECTLY!")
+
+    elif(money==0.5):
+        profit+=0.5
+        ice-=1
+        print("Successfully payed!")
+
+    else:
+        profit+=0.5
+        ice-=1
+        print("Successfully payed!\n"
+        "Returning {}".format(money-0.5))
+
+def buy():
+    while True:
+        try:
+            print("What do you want to buy?")
+            code=(int(input("-> ")))
+            if(code==1):
+                global soda
                 if(soda!=0):
-                    print('One Soda cost $2.5')
-                    print('Insert the money')
-                    payment1=float(input('-> '))
-                    if(payment1<2.5):
-                        print('PAY CORRECTLY!')
-                    elif(payment1==2.5):
-                        profit+=2.5
-                        soda-=1
-                        print('Successfully payed!')
-                    else:
-                        profit+=2.5
-                        soda-=1
-                        print('Successfully payed!')
-                        print('Returning ${}'.format(payment1-2.5))
+                    print("One soda can costs $2,50\n"
+                        "Insert the money")
+                    money=float(input("-> "))
+                    payment1(money)
+                    break
                 else:
-                    print('Product unavailable!')
-
-            elif(buy==2):
+                    print("Product unavailable")
+            
+            elif(code==2):
+                global water
                 if(water!=0):
-                    print('One bottle of water cost $1')
-                    print('Insert the money')
-                    payment2=float(input('-> '))
-                    if(payment2<1):
-                        print('PAY CORRECTLY!')
-                    elif(payment2==1):
-                        profit+=1
-                        water-=1
-                        print('Successfully payed!')
-                    else:
-                        profit+=1
-                        water-=1
-                        print('Successfully payed!')
-                        print('Returning ${}'.format(payment2-1))
+                    print("One bottle of water costs $1\n"
+                        "Insert the money")
+                    money=float(input("-> "))
+                    payment2(money)
+                    break
                 else:
-                    print('Product unavailable!')
+                    print("Product unavailable")
 
-            elif(buy==3):
+            elif(code==3):
+                global lemonade
                 if(lemonade!=0):
-                    print('One lemonade cost $1.50')
-                    print('Insert the money')
-                    payment3=int(input('-> '))
-                    if(payment3<1.5):
-                        print('PAY CORRECTLY!')
-                    elif(payment3==1.5):
-                        profit+=1.5
-                        lemonade-=1
-                        print('Successfully payed!')
-                    else:
-                        profit+=1.5
-                        lemonade-=1
-                        print('Successfully payed!')
-                        print('Returning ${}'.format(payment3-1.5))
+                    print("One lemonade costs $1,50\n"
+                        "Insert the money")
+                    money=float(input("-> "))
+                    payment3(money)
+                    break
                 else:
-                    print('Product unavailable!')
+                    print("Product unavailable")
 
-            elif(buy==4):
+            elif(code==4):
+                global potato
                 if(potato!=0):
-                    print('One bag of potato chips cost $4')
-                    print('Insert the money')
-                    payment4=int(input('-> '))
-                    if(payment4<4):
-                        print('PAY CORRECTLY!')
-                    elif(payment4==4):
-                        profit+=4
-                        potato-=1
-                        print('Successfully payed!')
-                    else:
-                        profit+=4
-                        potato-=1
-                        print('Successfully payed!')
-                        print('Returning ${}'.format(payment4-4))
+                    print("One bag of potato chips costs $4\n"
+                        "Insert the money")
+                    money=float(input("-> "))
+                    payment4(money)
+                    break
                 else:
-                    print('Product unavailable!')
+                    print("Product unavailable")
 
-            elif(buy==5):
+            elif(code==5):
+                global choc
                 if(choc!=0):
-                    print('One chocolate bar cost $2')
-                    print('Insert the money')
-                    payment5=int(input('-> '))
-                    if(payment5<2):
-                        print('PAY CORRECTLY!')
-                    elif(payment5==2):
-                        profit+=2
-                        choc-=1
-                        print('Successfully payed!')
-                    else:
-                        profit+=2
-                        choc-=1
-                        print('Successfully payed!')
-                        print('Returning ${}'.format(payment5-2))
+                    print("One chocolate bar costs $2\n"
+                        "Insert the money")
+                    money=float(input("-> "))
+                    payment5(money)
+                    break
                 else:
-                    print('Product unavailable!')
+                    print("Product unavailable")
 
-            elif(buy==6):
+            elif(code==6):
+                global ice
                 if(ice!=0):
-                    print('One ice cream cost $0.50')
-                    print('Insert the money')
-                    payment6=int(input('-> '))
-                    if(payment6<0.50):
-                        print('PAY CORRECTLY!')
-                    elif(payment6==0.50):
-                        profit+=0.50
-                        ice-=1
-                        print('Successfully payed!')
-                    else:
-                        profit+=0.50
-                        ice-=1
-                        print('Successfully payed!')
-                        print('Returning ${}'.format(payment6-0.50))
+                    print("One ice cream costs $4\n"
+                        "Insert the money")
+                    money=float(input("-> "))
+                    payment6(money)
+                    break
                 else:
-                    print('Product unavailable!')
+                    print("Product unavailable")
 
             else:
-                print('This product do not exist')
+                print("Invalid value!\n"
+                    "Try again...")
 
-        else:
-            break
+        except ValueError:
+            print("Invalid value!\n"
+                "Try again...")
 
-    except ValueError:
-        print('Invalid value\n'
-              'Try again...')
+def storage():
+    while True:
+        try:
+            print("|-----STORAGE-----|\n"
+                "|1- Check storage |\n"
+                "|2- Add           |\n"
+                "|3- Profit        |\n"
+                "|4- Exit          |\n"
+                "-------------------")
+            op=int(input("-> "))
+            if(op==1):
+                global soda
+                global water
+                global lemonade
+                global potato
+                global choc
+                global ice
+                print("---------STORAGE---------\n"
+                      "Items:      |Units:\n"
+                      "Soda        |{}    \n"
+                      "Water       |{}    \n"
+                      "Lemonade    |{}    \n"
+                      "Potato chips|{}    \n"
+                      "Chocolate   |{}    \n"
+                      "Ice cream   |{}".format(soda, water, lemonade, potato, choc, ice))
+                print("-"*25)
+                continue
 
-print('finishing')
+            elif(op==2):
+                print("What do you want to add?\n"
+                    "1- Soda\n"
+                    "2- Water\n"
+                    "3- Lemonade\n"
+                    "4- Potato chips\n"
+                    "5- Chocolate\n"
+                    "6- Ice cream")
+                item=int(input("-> "))
+                if(item==1):
+                    print("How many units will be added?")
+                    add=int(input("-> "))
+                    soda+=add
+                    print("Units successfully added!")
+
+                elif(item==2):
+                    print("How many units will be added?")
+                    add=int(input("-> "))
+                    water+=add
+                    print("Units successfully added!")
+
+                elif(item==3):
+                    print("How many units will be added?")
+                    add=int(input("-> "))
+                    lemonade+=add
+                    print("Units successfully added!")
+
+                elif(item==4):
+                    print("How many units will be added?")
+                    add=int(input("-> "))
+                    potato+=add
+                    print("Units successfully added!")
+
+                elif(item==5):
+                    print("How many units will be added?")
+                    add=int(input("-> "))
+                    choc+=add
+                    print("Units successfully added!")
+
+                elif(item==6):
+                    print("How many units will be added?")
+                    add=int(input("-> "))
+                    ice+=add
+                    print("Units successfully added!")
+
+            elif(op==3):
+                global profit
+                print("The total profit is ${}".format(profit))
+
+            elif(op==4):
+                break
+
+            else:
+                print("Invalid value!\n"
+                    "Try again...")
+                continue
+
+        except ValueError:
+            print("Invalid value!\n"
+                  "Try again...")
+
+def main():
+    while True:
+        try:
+            print("--------Vending Machine--------\n"
+                "|Code:         |Items:        |\n"
+                "|      1       |Soda          |\n"
+                "|      2       |Water         |\n"
+                "|      3       |Lemonade      |\n"
+                "|      4       |Potato chips  |\n"
+                "|      5       |Chocolate     |\n"
+                "|      6       |Ice cream     |\n"
+                "-------------------------------\n"
+                "0- Exit\n"
+                "1- Buy")
+            op=input("-> ")
+            if(op=="1"):
+                buy()
+                continue
+            
+            elif(op=="0"):
+                print("Finishing...")
+                break
+
+            elif(op=="123"):
+                storage()
+                continue
+            
+            else:
+                print("Invalid value\n"
+                      "Try again...")
+                continue
+
+        except ValueError:
+            print("Invalid value\n"
+                  "Try again...")
+
+main()
