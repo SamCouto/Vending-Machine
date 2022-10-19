@@ -20,7 +20,7 @@ The second part of the code is the storage system.
     There the user will be able to see how many item the machine still have in it stock, the user will be able to add more units to the stock and the user will be able to see how much he earned with the machine sales.
 
 **Máquina Automática de Vendas PT-BR**
-***by: Driver Boladão***
+***by: Samuel Couto***
 
 Essa é uma máquina automática de vendas simples que eu fiz usando Python.
 O código desta máquina automática de vendas é separado em duas partes principais:
