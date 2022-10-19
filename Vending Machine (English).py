@@ -3,7 +3,7 @@ water=10
 lemonade=10
 potato=10
 choc=10
-ice=10
+pop=10
 profit=0
 
 def payment1(money):
@@ -97,7 +97,7 @@ def payment5(money):
         "Returning {}".format(money-2))
 
 def payment6(money):
-    global ice
+    global pop
     global profit
 
     if(money<0.5):
@@ -105,12 +105,12 @@ def payment6(money):
 
     elif(money==0.5):
         profit+=0.5
-        ice-=1
+        pop-=1
         print("Successfully payed!")
 
     else:
         profit+=0.5
-        ice-=1
+        pop-=1
         print("Successfully payed!\n"
         "Returning {}".format(money-0.5))
 
@@ -175,9 +175,9 @@ def buy():
                     print("Product unavailable")
 
             elif(code==6):
-                global ice
-                if(ice!=0):
-                    print("One ice cream costs $4\n"
+                global pop
+                if(pop!=0):
+                    print("One popsicle costs $0,50\n"
                         "Insert the money")
                     money=float(input("-> "))
                     payment6(money)
@@ -209,7 +209,7 @@ def storage():
                 global lemonade
                 global potato
                 global choc
-                global ice
+                global pop
                 print("---------STORAGE---------\n"
                       "Items:      |Units:\n"
                       "Soda        |{}    \n"
@@ -217,7 +217,7 @@ def storage():
                       "Lemonade    |{}    \n"
                       "Potato chips|{}    \n"
                       "Chocolate   |{}    \n"
-                      "Ice cream   |{}".format(soda, water, lemonade, potato, choc, ice))
+                      "Popsicle    |{}".format(soda, water, lemonade, potato, choc, pop))
                 print("-"*25)
                 continue
 
@@ -228,7 +228,7 @@ def storage():
                     "3- Lemonade\n"
                     "4- Potato chips\n"
                     "5- Chocolate\n"
-                    "6- Ice cream")
+                    "6- Popsicle")
                 item=int(input("-> "))
                 if(item==1):
                     print("How many units will be added?")
@@ -263,7 +263,7 @@ def storage():
                 elif(item==6):
                     print("How many units will be added?")
                     add=int(input("-> "))
-                    ice+=add
+                    pop+=add
                     print("Units successfully added!")
 
             elif(op==3):
@@ -292,7 +292,7 @@ def main():
                 "|      3       |Lemonade      |\n"
                 "|      4       |Potato chips  |\n"
                 "|      5       |Chocolate     |\n"
-                "|      6       |Ice cream     |\n"
+                "|      6       |Popsicle      |\n"
                 "-------------------------------\n"
                 "0- Exit\n"
                 "1- Buy")
