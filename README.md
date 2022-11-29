@@ -30,7 +30,7 @@
 #### Essa é uma máquina automática de vendas simples que eu fiz usando Python.
 #### O código desta máquina automática de vendas é separado em duas partes principais:
 1. **Interface principal**
-2. **Sistema de estoque**
+2. **Painel de Controle**
 
 * A primeira parte do código é a **interface principal**
 
@@ -40,10 +40,10 @@
     2. **Sistema de pagamento:**
         * O sistema irá pedir que o usuário insira o dinheiro para efetuar o pagamento do produto selecionado, após inserir o dinheiro, o sistema analizará a necessidade de troco, caso for necessário, o sistema devolverá o troco ao usuário.
 
-* A segunda parte do código é o **sistema de estoque**
+* A segunda parte do código é o **Painel de Controle**
 
-    1. **Como acessar o sistema de estoque?**
-        * Para acessar o sistema de estoque o usuário precisa digitar uma senha na interface principal, fazendo isto você terá acesso ao sistema de estoque.
+    1. **Como acessar o Painel de Controle?**
+        * Para acessar o Painel de Controle o usuário precisa digitar uma senha na interface principal, fazendo isto você terá acesso ao Painel de Controle.
 
-    2. **O que eu posso fazer com o sistema de estoque?**
-        * No sistema de estoque o usuário poderá ver quantos produtos ainda restam no estoque, ele poderá repor itens no estoque e também poderá ver o quanto ele lucrou com as vendas da máquina.
+    2. **O que eu posso fazer no Painel de Controle?**
+        * No Painel de Controle o usuário poderá ver quantos produtos ainda restam no estoque, ele poderá repor itens no estoque e também poderá ver o quanto ele lucrou com as vendas da máquina.
